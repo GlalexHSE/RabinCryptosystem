@@ -4,16 +4,16 @@ import random
 def text_to_num(text: str):
     num = 0
     for char in text:
-        num = num * 10000 + ord(char)
+        num = num * 1000 + ord(char)
     return num
 
 
 def num_to_text(num: int):
     text = ""
     while num > 0:
-        char_code = num % 10000
+        char_code = num % 1000
         text = chr(char_code) + text
-        num = num // 10000
+        num = num // 1000
     return text
 
 
@@ -32,7 +32,7 @@ def is_prime(n, k=10):
 
 def generate_large_prime():
     while True:
-        num = random.randint(2 ** 64, 2 ** 128)
+        num = random.randint(100, 200)
         if is_prime(num) and num % 4 == 3:
             return num
 
@@ -43,8 +43,8 @@ def key_generation():
     p = 33056296290967319719
     q = 25858034965362608719
     """
-    p = generate_large_prime()
-    q = generate_large_prime()
+    p = 139 # Пример 1: 10067; Пример 2: 139
+    q = 191  # Пример 1: 10859; Пример 2: 191
 
     n = p * q
     key_pub = n
